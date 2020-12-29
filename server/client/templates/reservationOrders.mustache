@@ -1,4 +1,4 @@
-<table>
+<table class="table orders">
     <tr>
         <th>Order</th>
         <th>Last</th>
@@ -8,8 +8,10 @@
         <th>Height</th>
     </tr>
     {{#rentalData}}
-        <tr>
-            <th rowspan="{{rowspan}}">{{header}}</th>
+        <tr class="order">
+            <th rowspan="{{rowspan}}">
+                <svg class="barcode" id="barcode-{{id}}"></svg>
+            </th>
         </tr>
         {{#data}}
             <tr>
