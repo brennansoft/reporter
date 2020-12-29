@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors')
 const fileUpload = require('express-fileupload')
 const parser = require('node-html-parser')
 const extractor = require('./dataExtractor.js')
@@ -6,7 +7,7 @@ const orders = require('./orders.js')
 const app = express()
 const port = 3000
 
-app.use('/', express.static('client'))
+app.use(cors())
 
 app.use(fileUpload({ debug: true }))
 
@@ -15,9 +16,16 @@ app.post('/upload', (req, res) => {
     return res.status(400).send('No files were uploaded.')
   }
 
-  let report = req.files.report
+  let report = req.files.file
   let html = parser.parse(report.data.toString())
-  let json = extractor.extractAll(html).reduce(orders.append, {})
+  let rentalOrders = extractor.extractAll(html).reduce(orders.append, {})
+
+  let json = Object.getOwnPropertyNames(rentalOrders).map(id => {
+    return {
+      id,
+      data: rentalOrders[id]
+    }
+  })
 
   res.send(json)
 })

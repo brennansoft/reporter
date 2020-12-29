@@ -3,25 +3,28 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <script src='./dataExtractor.js'></script>
-    <script src='./dataExplorer.js'></script>
     <link rel="stylesheet" href='./normalize.css'/>
     <link rel="stylesheet" href='./skeleton.css'/>
     <link rel="stylesheet" href='./dataExplorer.css'/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.1.0/mustache.min.js"></script>
+    <script src="dataExplorer.js"></script>
 </head>
 <body>
 <div class="container">
     <section class="header">
         <form ref='uploadForm'
 			id='uploadForm'
-			action='/upload'
+			action='http://localhost:3000/upload'
 			method='post'
 			encType="multipart/form-data">
-				<input type="file" name="report" />
+				<input type="file" id="file-input" name="report" />
             <div class="row">
 				<input type='submit' value='Upload!' />
             </div>
 		</form>
+    </section>
+    <section id="rental-orders" class="table">
+
     </section>
 </div>
 </body>

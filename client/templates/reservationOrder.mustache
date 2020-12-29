@@ -1,0 +1,22 @@
+<table>
+    <tr>
+        <th>Order</th>
+        <th>Last</th>
+        <th>First</th>
+        <th>Desc</th>
+        <th>Shoe</th>
+        <th>Height</th>
+    </tr>
+    {{#rentalData}}
+        <tr>
+            <th rowspan="{{rowspan}}">{{header}}</th>
+        </tr>
+        {{#data}}
+            <tr>
+                {{#.}}
+                <td>{{.}}</td>
+                {{/.}}
+            </tr>
+        {{/data}}
+    {{/rentalData}}
+</table>
