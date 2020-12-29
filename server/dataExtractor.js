@@ -18,20 +18,21 @@ function getDataRows (doc) {
 }
 
 function extractRowData (row) {
-  let data = {}
   let cellsText = Array
     .from(row.querySelectorAll('td'))
-    .map(function (cell) {
-      return cell.innerText.replaceAll(/^\s+/g, '');
-    })
+    .map(cell => cell.rawText.replace(/^(\s+)|(\s+)$/g, ''))
 
   return {
     'name': cellsText[0],
     'IPCode': cellsText[1],
-    'package': cellsText[2],
+    'description': cellsText[2],
     'bootSize': cellsText[3],
     'height': cellsText[4],
     'orderID': cellsText[5],
     'extOrderID': cellsText[6]
   }
 }
+
+exports.extractRowData = extractRowData
+exports.getDataRows = getDataRows
+exports.extractAll = html => getDataRows(html).map(extractRowData)

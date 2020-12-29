@@ -1,5 +1,8 @@
 const express = require('express')
 const fileUpload = require('express-fileupload')
+const parser = require('node-html-parser')
+const extractor = require('./dataExtractor.js')
+const orders = require('./orders.js')
 const app = express()
 const port = 3000
 
@@ -13,8 +16,10 @@ app.post('/upload', (req, res) => {
   }
 
   let report = req.files.report
+  let html = parser.parse(report.data.toString())
+  let json = extractor.extractAll(html).reduce(orders.append, {})
 
-  res.send(report.data.toString())
+  res.send(json)
 })
 
 app.listen(port, () => {
