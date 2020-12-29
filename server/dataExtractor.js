@@ -1,12 +1,12 @@
 function firstCellText (row) {
-  return row.querySelector('td').innerText.replace(/\s/g,'')
+  return row.querySelector('td').innerText.replace(/\s/g, '')
 }
 
 function getRows (doc) {
   return Array.from(doc.querySelectorAll('tr'))
 }
 
-const CUSTOMER_NAME = /^(\w+),(\w+)$/
+const CUSTOMER_NAME = /^(?<lastName>\w+),\s?(?<firstName>[\w\s]+)$/gi
 
 function isReservationRow (row) {
   return CUSTOMER_NAME.test(firstCellText(row))
@@ -22,7 +22,7 @@ function extractRowData (row) {
     .from(row.querySelectorAll('td'))
     .map(cell => cell.rawText.replace(/^(\s+)|(\s+)$/g, ''))
 
-  return {
+  let data = {
     'name': cellsText[0],
     'IPCode': cellsText[1],
     'description': cellsText[2],
@@ -31,6 +31,18 @@ function extractRowData (row) {
     'orderID': cellsText[5],
     'extOrderID': cellsText[6]
   }
+
+  // TODO: figure out what's going on here
+  let match = CUSTOMER_NAME.exec(cellsText[0])
+  if (!match) { match = CUSTOMER_NAME.exec(cellsText[0]) }
+
+  if (match) {
+    let { firstName, lastName } = match.groups
+    data.firstName = firstName
+    data.lastName = lastName
+  }
+
+  return data
 }
 
 exports.extractRowData = extractRowData

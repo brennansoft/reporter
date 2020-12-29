@@ -7,17 +7,20 @@
     <script src='./dataExplorer.js'></script>
     <link rel="stylesheet" href='./normalize.css'/>
     <link rel="stylesheet" href='./skeleton.css'/>
+    <link rel="stylesheet" href='./dataExplorer.css'/>
 </head>
 <body>
 <div class="container">
-    <section>
+    <section class="header">
         <form ref='uploadForm'
 			id='uploadForm'
 			action='/upload'
 			method='post'
 			encType="multipart/form-data">
 				<input type="file" name="report" />
+            <div class="row">
 				<input type='submit' value='Upload!' />
+            </div>
 		</form>
     </section>
 </div>
