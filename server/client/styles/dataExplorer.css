@@ -12,6 +12,18 @@
   width: 4in;
 }
 
+.family {
+  list-style: none;
+}
+
+.family .member {
+  margin-left: 0.5in;
+}
+
+.family .name {
+  font-weight: bold;
+}
+
 @media print {
   .envelope {
     page-break-after: always;

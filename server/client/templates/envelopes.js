@@ -45,6 +45,11 @@ const envelopesTemplate = (() => {
           .getElementById('envelopes-pane')
           .innerHTML = Mustache.render(template, { envelopes })
       })
+      .then(() => {
+        state.rentalData.forEach(order => {
+          JsBarcode('#barcode-' + order.id, order.id)
+        })
+      })
   }
 
   return {

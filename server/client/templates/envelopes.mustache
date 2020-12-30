@@ -1,12 +1,12 @@
 {{#envelopes}}
     <div class="envelope">
-        {{familyNames}}
-        <h1>{{id}}</h1>
+        <h1>{{familyNames}}</h1>
+        <svg class="barcode" id="barcode-{{id}}"></svg>
         {{#families}}
-            <h2>{{name}}</h2>
-            <ul>
+            <h4>{{name}}</h4>
+            <ul class="family">
                 {{#members}}
-                    <li>
+                    <li class="member">
                         <span class="name">
                             {{firstName}}
                         </span>
