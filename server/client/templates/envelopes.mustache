@@ -4,17 +4,19 @@
         <svg class="barcode" id="barcode-{{id}}"></svg>
         {{#families}}
             <h4>{{name}}</h4>
-            <ul class="family">
+            <ul class="family container">
                 {{#members}}
-                    <li class="member">
+                    <li class="member row">
                         <span class="name">
-                            {{firstName}}
+                            {{firstName}}:
                         </span>
-                        <span class="product">
-                            {{product}}
-                        </span>
-                        <span class="bootSize">
-                            {{bootSize}}
+                        <span class="sizes">
+                            <span class="bootSize row">
+                                Size {{bootSize}}
+                            </span>
+                            <span class="product row">
+                                {{product}}
+                            </span>
                         </span>
                     </li>
                 {{/members}}
