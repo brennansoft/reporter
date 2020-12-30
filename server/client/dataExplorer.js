@@ -15,7 +15,8 @@ const parseRentalReport = (state, form, fileInput) => async event => {
 
   const response = await fetch(form.getAttribute('action'), options)
   state.rentalData = await response.json()
-  renderTable(state)
+  // renderTable(state)
+  envelopesTemplate.render(state)
 }
 
 window.addEventListener('load', async () => {

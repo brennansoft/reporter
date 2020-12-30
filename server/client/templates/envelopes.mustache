@@ -1,0 +1,24 @@
+{{#envelopes}}
+    <div class="envelope">
+        {{familyNames}}
+        <h1>{{id}}</h1>
+        {{#families}}
+            <h2>{{name}}</h2>
+            <ul>
+                {{#members}}
+                    <li>
+                        <span class="name">
+                            {{firstName}}
+                        </span>
+                        <span class="product">
+                            {{product}}
+                        </span>
+                        <span class="bootSize">
+                            {{bootSize}}
+                        </span>
+                    </li>
+                {{/members}}
+            </ul>
+        {{/families}}
+    </div>
+{{/envelopes}}
