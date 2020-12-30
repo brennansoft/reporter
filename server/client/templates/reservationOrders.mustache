@@ -1,0 +1,24 @@
+<table class="table orders">
+    <tr>
+        <th>Order</th>
+        <th>Last</th>
+        <th>First</th>
+        <th>Desc</th>
+        <th>Shoe</th>
+        <th>Height</th>
+    </tr>
+    {{#rentalData}}
+        <tr class="order">
+            <th rowspan="{{rowspan}}">
+                <svg class="barcode" id="barcode-{{id}}"></svg>
+            </th>
+        </tr>
+        {{#data}}
+            <tr>
+                {{#.}}
+                <td>{{.}}</td>
+                {{/.}}
+            </tr>
+        {{/data}}
+    {{/rentalData}}
+</table>

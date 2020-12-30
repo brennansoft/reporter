@@ -1,0 +1,25 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "RTP Report Data Extractor",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brennansoft/reporter.git"
+  },
+  "author": "James Brennan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brennansoft/reporter/issues"
+  },
+  "homepage": "https://github.com/brennansoft/reporter#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.0",
+    "node-html-parser": "^2.0.0"
+  }
+}

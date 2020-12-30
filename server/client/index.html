@@ -1,0 +1,38 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href='./styles/normalize.css'/>
+    <link rel="stylesheet" href='./styles/skeleton.css'/>
+    <link rel="stylesheet" href='./styles/dataExplorer.css'/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.1.0/mustache.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.3/dist/barcodes/JsBarcode.code128.min.js"></script>
+    <script src="templates/reservationOrders.js"></script>
+    <script src="templates/envelopes.js"></script>
+    <script src="dataExplorer.js"></script>
+</head>
+<body>
+<div class="container">
+    <section class="header">
+        <form ref='uploadForm'
+			id='uploadForm'
+			action='upload'
+			method='post'
+			encType="multipart/form-data">
+				<input type="file" id="file-input" name="report" />
+            <div class="row">
+				<input type='submit' value='Upload!' />
+            </div>
+		</form>
+    </section>
+    <div class="">
+        <section id="rental-orders">
+
+        </section>
+        <section id="envelopes-pane">
+
+        </section>
+    </div>
+</div>
+</body>

@@ -1,0 +1,51 @@
+.header {
+  text-align: center;
+}
+
+.envelope {
+  height: 9.5in;
+  width: 4in;
+  font-size: 1.2em;
+}
+
+.family {
+  list-style: none;
+  margin-left: 0;
+}
+
+.member {
+  margin-left: 0;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.member .name,
+.member .sizes {
+  float: left;
+}
+
+.member .name {
+  min-width: 40%;
+}
+
+.member .sizes {
+  margin-left: 20px;
+}
+
+.member .name,
+.member .bootSize {
+  font-weight: bold;
+  font-size: 1.4em;
+}
+
+.product {
+  font-size: 0.7em;
+  position: relative;
+  top: -20px;
+}
+
+@media print {
+  .envelope {
+    page-break-after: always;
+  }
+}
