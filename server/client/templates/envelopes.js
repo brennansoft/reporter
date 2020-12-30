@@ -25,6 +25,7 @@ const envelopesTemplate = (() => {
     let { rentalData } = state
 
     let envelopes = rentalData.map(order => {
+
       let families = groupFamilies(order)
 
       console.log({ families })

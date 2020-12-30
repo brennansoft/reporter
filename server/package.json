@@ -4,7 +4,7 @@
   "description": "RTP Report Data Extractor",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -21,5 +21,10 @@
     "express": "^4.17.1",
     "express-fileupload": "^1.2.0",
     "node-html-parser": "^2.0.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.2.1",
+    "supertest": "^6.0.1"
   }
 }
