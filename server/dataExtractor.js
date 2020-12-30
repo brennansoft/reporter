@@ -6,10 +6,11 @@ function getRows (doc) {
   return Array.from(doc.querySelectorAll('tr'))
 }
 
-const CUSTOMER_NAME = /^(?<lastName>\w+),\s?(?<firstName>[\w\s]+)$/gi
+const CUSTOMER_NAME = /^(?<lastName>\w+),\s?(?<firstName>[\w\s]+)$/i
 
 function isReservationRow (row) {
-  return CUSTOMER_NAME.test(firstCellText(row))
+  let txt = firstCellText(row)
+  return CUSTOMER_NAME.test(txt)
 }
 
 function getDataRows (doc) {
@@ -32,9 +33,9 @@ function extractRowData (row) {
     'extOrderID': cellsText[6]
   }
 
-  // TODO: figure out what's going on here
+  // https://stackoverflow.com/questions/11477415/why-does-javascripts-regex-exec-not-always-return-the-same-value
+  CUSTOMER_NAME.lastIndex = 0
   let match = CUSTOMER_NAME.exec(cellsText[0])
-  if (!match) { match = CUSTOMER_NAME.exec(cellsText[0]) }
 
   if (match) {
     let { firstName, lastName } = match.groups
@@ -45,6 +46,7 @@ function extractRowData (row) {
   return data
 }
 
+exports.firstCellText = firstCellText
 exports.extractRowData = extractRowData
 exports.getDataRows = getDataRows
 exports.extractAll = html => getDataRows(html).map(extractRowData)

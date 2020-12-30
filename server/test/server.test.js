@@ -35,11 +35,12 @@ describe('POST /upload', () => {
         assert(WF17155 && WF17155.data)
         let names = WF17155.data.map(([last, first]) => first)
 
-        expect(names).to.eql([
-          'Suzanne',
+        expect(names.sort()).to.eql([
           'Amanda',
+          'Barry',
           'Jeffrey',
-          'Barry'
+          'Spencer',
+          'Suzanne'
         ])
 
         done()
