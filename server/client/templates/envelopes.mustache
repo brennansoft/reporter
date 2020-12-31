@@ -3,7 +3,10 @@
         <h1>{{familyNames}}</h1>
         <svg class="barcode" id="barcode-{{id}}"></svg>
         {{#families}}
-            <h4>{{name}}</h4>
+            {{#multipleLastNames}}
+                <h5 class="last-name">{{name}}</h5>
+            {{/multipleLastNames}}
+
             <ul class="family container">
                 {{#members}}
                     <li class="member row">

@@ -33,7 +33,8 @@ describe('POST /upload', () => {
         const WF17155 = res.body.find(({ id }) => id === 'WF17155')
 
         assert(WF17155 && WF17155.data)
-        let names = WF17155.data.map(([last, first]) => first)
+
+        let names = WF17155.data.map(([first]) => first)
 
         expect(names.sort()).to.eql([
           'Amanda',

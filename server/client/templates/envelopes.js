@@ -35,6 +35,9 @@ const envelopesTemplate = (() => {
         families,
         familyNames: function () {
           return families.map(x => x.name).sort().join(', ')
+        },
+        multipleLastNames: function () {
+          return families.map(x => x.name).length > 1
         }
       }
     })
