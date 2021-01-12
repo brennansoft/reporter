@@ -1,12 +1,16 @@
 let state = {
-  rentalData: null
+  rentalData: null,
+  inputFiles: {
+    reservations: false,
+    withSizes: false
+  }
 }
 
-const parseRentalReport = (state, form, fileInput) => async event => {
-  event.preventDefault()
+const parseRentalReport = async (state, form, rentalInput, withSizesInput) => {
   const formData = new FormData()
 
-  formData.append('file', fileInput.files[0])
+  formData.append('rentalReservation', rentalInput.files[0])
+  formData.append('arrivalWithSizes', withSizesInput.files[0])
 
   const options = {
     method: 'POST',
@@ -17,14 +21,6 @@ const parseRentalReport = (state, form, fileInput) => async event => {
   state.rentalData = await response.json()
   // renderTable(state)
   envelopesTemplate.render(state)
+
+  form.setAttribute('style', 'display: none')
 }
-
-window.addEventListener('load', async () => {
-  const form = document.getElementById('uploadForm')
-  const fileInput = document.querySelector('#file-input')
-
-  form.onsubmit = event => {
-    parseRentalReport(state, form, fileInput)(event)
-    document.getElementById('uploadForm').setAttribute('style', 'display: none')
-  }
-})

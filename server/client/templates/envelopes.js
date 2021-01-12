@@ -28,8 +28,6 @@ const envelopesTemplate = (() => {
 
       let families = groupFamilies(order)
 
-      console.log({ families })
-
       return {
         id: order.id,
         families,

@@ -15,18 +15,20 @@ describe('GET /', () => {
 describe('POST /upload', () => {
   const testFile = path.join(__dirname, 'fixtures', '20201231.html')
 
-  it('returns json', (done) => {
-    request(app)
+  const postData = () => {
+    return request(app)
       .post('/upload')
-      .attach('file', testFile)
+      .attach('rentalReservation', testFile)
+  }
+
+  it('returns json', (done) => {
+    postData()
       .expect('Content-Type', /json/)
       .expect(200, done)
   })
 
   it('returns the expected data', (done) => {
-    request(app)
-      .post('/upload')
-      .attach('file', testFile)
+    postData()
       .end((err, res) => {
         if (err) return done(err)
 
@@ -34,7 +36,7 @@ describe('POST /upload', () => {
 
         assert(WF17155 && WF17155.data)
 
-        let names = WF17155.data.map(([first]) => first)
+        let names = WF17155.data.map(([_, first]) => first)
 
         expect(names.sort()).to.eql([
           'Amanda',

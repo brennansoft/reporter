@@ -1,55 +1,90 @@
 .header {
-  text-align: center;
+    text-align: center;
 }
 
 .envelope {
-  height: 9.5in;
-  width: 4in;
-  font-size: 1.2em;
+    height: 9.5in;
+    width: 4in;
+    font-size: 1.2em;
 }
 
 .last-name {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 .family {
-  list-style: none;
-  margin-left: 0;
+    list-style: none;
+    margin-left: 0;
 }
 
 .member {
-  margin-left: 0;
-  padding-left: 0;
-  margin-bottom: 0;
+    margin-left: 0;
+    padding-left: 0;
+    margin-bottom: 0;
 }
 
 .member .name,
 .member .sizes {
-  float: left;
+    float: left;
 }
 
 .member .name {
-  min-width: 40%;
+    min-width: 40%;
 }
 
 .member .sizes {
-  margin-left: 20px;
+    margin-left: 20px;
 }
 
 .member .name,
 .member .bootSize {
-  font-weight: bold;
-  font-size: 1.4em;
+    font-weight: bold;
+    font-size: 1.4em;
 }
 
 .product {
-  font-size: 0.7em;
-  position: relative;
-  top: -20px;
+    font-size: 0.7em;
+    position: relative;
+    top: -20px;
 }
 
 @media print {
-  .envelope {
-    page-break-after: always;
-  }
+    .envelope {
+        page-break-after: always;
+    }
+}
+
+#rental-orders .barcode {
+    max-width: 120px;
+    max-height: 100px;
+}
+
+input[type=file] {
+    display: none
+}
+
+.button-pending {
+    background-color: grey;
+    color: whitesmoke;
+}
+
+.button-pending:hover {
+    color: whitesmoke;
+    background-color: #1a5f75;
+}
+
+.button-success {
+    background-color: forestgreen;
+    color: whitesmoke;
+}
+
+.button-success:hover,
+.button-success:focus {
+    color: whitesmoke;
+    background-color: forestgreen;
+}
+
+.button-error {
+    background-color: red;
+    color: white;
 }

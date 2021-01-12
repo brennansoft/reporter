@@ -11,20 +11,29 @@
     <script src="templates/reservationOrders.js"></script>
     <script src="templates/envelopes.js"></script>
     <script src="dataExplorer.js"></script>
+    <script src="uploadButtons.js"></script>
 </head>
 <body>
 <div class="container">
-    <section class="header">
-        <form ref='uploadForm'
-			id='uploadForm'
-			action='upload'
-			method='post'
-			encType="multipart/form-data">
-				<input type="file" id="file-input" name="report" />
-            <div class="row">
-				<input type='submit' value='Upload!' />
-            </div>
-		</form>
+    <section class="header" id="header">
+        <form ref='upload-form'
+              id='upload-form'
+              action='upload'
+              method='post'
+              encType="multipart/form-data">
+            <input type="file" id="aw-rental-reservation" name="rentalReservation"/>
+            <input type="file" id="arrival-with-sizes" name="arrivalWithSizes"/>
+        </form>
+        <div class="row">
+            <h4>Click to Upload Rental Report</h4>
+        </div>
+
+        <div class="row">
+            <button id="aw-rental-reservation-button"
+                    class="button button-pending">
+                AW Rental Reservation
+            </button>
+        </div>
     </section>
     <div class="">
         <section id="rental-orders">

@@ -17,8 +17,9 @@ app.post('/upload', (req, res) => {
     return res.status(400).send('No files were uploaded.')
   }
 
-  let report = req.files.file
-  let html = parser.parse(report.data.toString())
+  let { rentalReservation } = req.files
+
+  let html = parser.parse(rentalReservation.data.toString())
   let rentalOrders = extractor.extractAll(html).reduce(orders.append, {})
 
   let json = Object.getOwnPropertyNames(rentalOrders).map(id => {
