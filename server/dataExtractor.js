@@ -6,11 +6,15 @@ function getRows (doc) {
   return Array.from(doc.querySelectorAll('tr'))
 }
 
-const CUSTOMER_NAME = /^(?<lastName>\w+),\s?(?<firstName>[\w\s]+)$/i
+const CUSTOMER_NAME = /^(?<lastName>[\w\s']+),\s?(?<firstName>[\w\s]+)$/i
+
+function isCustomerName (string) {
+  return CUSTOMER_NAME.test(string)
+}
 
 function isReservationRow (row) {
   let txt = firstCellText(row)
-  return CUSTOMER_NAME.test(txt)
+  return isCustomerName(txt)
 }
 
 function getDataRows (doc) {
@@ -46,6 +50,7 @@ function extractRowData (row) {
   return data
 }
 
+exports.isCustomerName = isCustomerName
 exports.firstCellText = firstCellText
 exports.extractRowData = extractRowData
 exports.getDataRows = getDataRows
