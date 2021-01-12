@@ -88,3 +88,8 @@ input[type=file] {
     background-color: red;
     color: white;
 }
+
+.project-info {
+    margin-top: 50%;
+    border-top: solid 1px grey;
+}
