@@ -6,8 +6,6 @@ window.addEventListener('load', async () => {
   const rentalInput = document.getElementById('aw-rental-reservation')
   const rentalButton = document.getElementById('aw-rental-reservation-button')
 
-  const withSizesInput = document.getElementById('arrival-with-sizes')
-
   const hideHeader = () => {
     document.getElementById('header').setAttribute('style', 'display: none')
   }
@@ -23,7 +21,7 @@ window.addEventListener('load', async () => {
     rentalButton.className = rentalButton.className
       .replace('button-pending', 'button-success')
 
-    await parseRentalReport(state, form, rentalInput, withSizesInput)
+    await parseRentalReport(state, form, rentalInput)
     hideHeader()
   })
 })

@@ -6,11 +6,10 @@ let state = {
   }
 }
 
-const parseRentalReport = async (state, form, rentalInput, withSizesInput) => {
+const parseRentalReport = async (state, form, rentalInput) => {
   const formData = new FormData()
 
   formData.append('rentalReservation', rentalInput.files[0])
-  formData.append('arrivalWithSizes', withSizesInput.files[0])
 
   const options = {
     method: 'POST',
