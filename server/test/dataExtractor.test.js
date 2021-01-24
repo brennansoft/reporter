@@ -46,6 +46,12 @@ describe('isCustomerName', () => {
     })
   })
 
+  describe('given a hyphenated name', () => {
+    it('returns true', () => {
+      expect(isCustomerName("Haul-Huff, April")).to.be.true
+    })
+  })
+
   describe('given a report info cell', () => {
     let string1 = "Copyright&#169;2003-2020TheActiveNetworkPage2of3"
     let string2 = "UserName=ChrisBoedeker;ReportDate=12/30/202012:50PM;BeginDate=12/31/2020;EndDate=12/31/2020;BusinessUnit=WhitefishMountainResort;RentalLocation=VillageRentals;UseProductDate=Y"

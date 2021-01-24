@@ -6,7 +6,7 @@ function getRows (doc) {
   return Array.from(doc.querySelectorAll('tr'))
 }
 
-const CUSTOMER_NAME = /^(?<lastName>[\w\s']+),\s?(?<firstName>[\w\s]+)$/i
+const CUSTOMER_NAME = /^(?<lastName>[\w\s'\-]+),\s?(?<firstName>[\w\s]+)$/i
 
 function isCustomerName (string) {
   return CUSTOMER_NAME.test(string)
